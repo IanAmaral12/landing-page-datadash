@@ -24,10 +24,6 @@ const CTAFooter = () => {
                     </a>
 
                     <div className="footer-info">
-                        <div className="footer-logo">
-                            <img src="/logo.png" alt="DataDash Solutions" />
-                        </div>
-
                         <div className="footer-links">
                             <a href="#services">Soluções</a>
                             <a href="#problem-solution">Abordagem</a>

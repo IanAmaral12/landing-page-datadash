@@ -4,7 +4,7 @@ const Portfolio = () => {
     const cases = [
         {
             client: 'Wellington Martins',
-            metric: '+2 mil agendamentos/mês',
+            metric: '+2 mil vendas/mês',
             solution: 'Planilha integrada',
             testimonial: 'Antes do Ian fazer a nossa planilha de controle automática, eu não tinha uma visão fácil do meu negócio de afiliados, eu dependia de preenchimento manual, o trabalho foi muito bom pra nós...',
             results: ['Automação completa', 'Visão em tempo real', 'Zero trabalho manual']
@@ -18,7 +18,7 @@ const Portfolio = () => {
         },
         {
             client: 'Wenderson Bertoldo',
-            metric: '+300 agendamentos/mês',
+            metric: '+300 pedidos/mês',
             solution: 'Automação de WhatsApp e planilha integrada',
             testimonial: 'Resolveu todos os problemas de quem roda pagamento pós entrega, desde o controle a cobrança...',
             results: ['Controle total', 'Cobrança automatizada', 'Gestão simplificada']

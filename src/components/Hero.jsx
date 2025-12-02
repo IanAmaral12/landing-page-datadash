@@ -28,16 +28,6 @@ const Hero = () => {
                             Veja Como Funciona
                         </a>
                     </div>
-
-                    <div className="social-proof fade-in-up">
-                        <p className="proof-label">Confiado por empresas inovadoras</p>
-                        <div className="client-logos">
-                            <div className="client-logo">Cliente 1</div>
-                            <div className="client-logo">Cliente 2</div>
-                            <div className="client-logo">Cliente 3</div>
-                            <div className="client-logo">Cliente 4</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
