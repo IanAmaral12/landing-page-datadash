@@ -6,7 +6,7 @@ import ProblemSolution from './components/ProblemSolution';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import CTAFooter from './components/CTAFooter';
-import ParticlesCanvas from './components/ParticlesCanvas';
+
 
 function App() {
   useEffect(() => {
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <ParticlesCanvas />
+
       <Header />
       <Hero />
       <ProblemSolution />
