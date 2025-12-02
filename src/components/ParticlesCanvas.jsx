@@ -18,7 +18,7 @@ const ParticlesCanvas = () => {
 
         // Particle system
         const particles = [];
-        const particleCount = 60;
+        const particleCount = 80;
         const mouse = { x: null, y: null };
         const maxDistance = 150;
 
@@ -28,7 +28,7 @@ const ParticlesCanvas = () => {
                 this.y = Math.random() * canvas.height;
                 this.vx = (Math.random() - 0.5) * 0.5;
                 this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 2 + 1;
+                this.radius = Math.random() * 2.5 + 1;
             }
 
             update() {
@@ -39,21 +39,22 @@ const ParticlesCanvas = () => {
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-                // Mouse interaction
+                // Mouse interaction - INCREASED STRENGTH
                 if (mouse.x && mouse.y) {
                     const dx = mouse.x - this.x;
                     const dy = mouse.y - this.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 100) {
-                        const force = (100 - distance) / 100;
-                        this.vx += dx * 0.0001 * force;
-                        this.vy += dy * 0.0001 * force;
+                    if (distance < 150) {
+                        const force = (150 - distance) / 150;
+                        // Stronger attraction force
+                        this.vx += dx * 0.0008 * force;
+                        this.vy += dy * 0.0008 * force;
                     }
                 }
 
                 // Limit velocity
-                const maxSpeed = 2;
+                const maxSpeed = 3;
                 const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
                 if (speed > maxSpeed) {
                     this.vx = (this.vx / speed) * maxSpeed;
@@ -62,7 +63,7 @@ const ParticlesCanvas = () => {
             }
 
             draw() {
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.3)';
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.4)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fill();
@@ -99,9 +100,9 @@ const ParticlesCanvas = () => {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < maxDistance) {
-                        const opacity = (1 - distance / maxDistance) * 0.15;
+                        const opacity = (1 - distance / maxDistance) * 0.25;
                         ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
-                        ctx.lineWidth = 1;
+                        ctx.lineWidth = 1.5;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);

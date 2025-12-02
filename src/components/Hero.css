@@ -6,7 +6,7 @@
     background: var(--color-white);
     position: relative;
     z-index: 2;
-    padding-top: 80px;
+    padding-top: 140px;
     overflow: hidden;
 }
 
@@ -95,7 +95,7 @@
 @media (max-width: 768px) {
     .hero {
         min-height: 90vh;
-        padding-top: 100px;
+        padding-top: 120px;
     }
 
     .hero-subtitle {

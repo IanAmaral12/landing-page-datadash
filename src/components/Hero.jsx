@@ -18,14 +18,12 @@ const Hero = () => {
 
                     <div className="hero-cta">
                         <a
-                            href="#services"
+                            href="https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Datadash."
                             className="btn btn-primary"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            Veja Como Funciona
+                            Agende uma Consultoria
                         </a>
                     </div>
                 </div>
