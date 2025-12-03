@@ -40,6 +40,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+    padding-bottom: 0.15em;
+    /* Prevent clipping of descenders like ç and g */
+    line-height: 1.2;
+    /* Ensure proper spacing */
 }
 
 .hero-subtitle {
