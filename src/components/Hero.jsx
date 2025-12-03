@@ -8,7 +8,7 @@ const Hero = () => {
     const rotatingTexts = [
         'Automação Inteligente.',
         'Dados Estruturados.',
-        'Agentes de IA.'
+        'Agentes de Inteligência Artificial.'
     ];
 
     useEffect(() => {
