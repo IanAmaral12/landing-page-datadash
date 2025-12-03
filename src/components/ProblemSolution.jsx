@@ -38,7 +38,9 @@ const ProblemSolution = () => {
 
                     <div className="comparison-card solution-card fade-in-up">
                         <div className="card-header">
-                            <div className="icon-wrapper solution-icon">✨</div>
+                            <div className="icon-wrapper solution-icon">
+                                <img src="/public/logotipo.png" alt="DataDash" width={50} height={50}/>
+                            </div>
                             <h3>Com DataDash</h3>
                         </div>
                         <ul className="comparison-list">
