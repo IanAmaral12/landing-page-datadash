@@ -6,9 +6,9 @@ const Hero = () => {
     const [isAnimating, setIsAnimating] = useState(false);
 
     const rotatingTexts = [
-        'Automação Inteligente.',
+        'Automação de Tarefas.',
         'Dados Estruturados.',
-        'Agentes de Inteligência Artificial.'
+        'Inteligência Artificial.'
     ];
 
     useEffect(() => {
