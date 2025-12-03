@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import TechStack from './components/TechStack';
 import ProblemSolution from './components/ProblemSolution';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
@@ -36,6 +37,7 @@ function App() {
 
       <Header />
       <Hero />
+      <TechStack />
       <ProblemSolution />
       <Services />
       <Portfolio />
