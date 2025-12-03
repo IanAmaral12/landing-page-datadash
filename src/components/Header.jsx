@@ -45,7 +45,7 @@ const Header = () => {
                         rel="noopener noreferrer"
                         className="btn btn-primary header-cta"
                     >
-                        Agende uma call
+                        Fale conosco
                     </a>
 
                     {/* Hamburger Menu - Mobile Only */}

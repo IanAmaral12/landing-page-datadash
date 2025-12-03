@@ -31,8 +31,9 @@ const CTAFooter = () => {
                         </div>
 
                         <div className="footer-contact">
-                            <p>contato@datadash.solutions</p>
-                            <p>© 2024 DataDash Solutions. Todos os direitos reservados.</p>
+                            <p>contato@datadashapp.com</p>
+                            <p>(14) 93618-1105</p>
+                            <p>© 2025 DataDash Solutions. Todos os direitos reservados.</p>
                         </div>
                     </div>
                 </div>
