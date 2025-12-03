@@ -1,6 +1,32 @@
+import { useState, useEffect } from 'react';
 import './Hero.css';
 
 const Hero = () => {
+    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    const rotatingTexts = [
+        'Automação Inteligente.',
+        'Dados Estruturados.',
+        'Agentes de IA.'
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsAnimating(true);
+
+            setTimeout(() => {
+                setCurrentTextIndex((prevIndex) =>
+                    (prevIndex + 1) % rotatingTexts.length
+                );
+                setIsAnimating(false);
+            }, 500); // Half of the transition time for smooth effect
+
+        }, 2000); // Change every 2 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section id="hero" className="hero">
             <div className="container">
@@ -8,7 +34,9 @@ const Hero = () => {
                     <h1 className="hero-title">
                         Chega de Trabalho Manual.<br />
                         Escale sua Operação com<br />
-                        <span className="gradient-text">Automação Inteligente.</span>
+                        <span className={`gradient-text ${isAnimating ? 'fade-out' : 'fade-in'}`}>
+                            {rotatingTexts[currentTextIndex]}
+                        </span>
                     </h1>
 
                     <p className="hero-subtitle">

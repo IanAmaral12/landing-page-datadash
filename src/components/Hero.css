@@ -44,6 +44,17 @@
     /* Prevent clipping of descenders like ç and g */
     line-height: 1.2;
     /* Ensure proper spacing */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.gradient-text.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.gradient-text.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-subtitle {
