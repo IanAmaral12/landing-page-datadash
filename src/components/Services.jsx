@@ -5,22 +5,26 @@ const Services = () => {
         {
             icon: '🔄',
             title: 'Agentes de Automação de Fluxo',
-            description: 'Integração perfeita entre seus sistemas CRM, ERP e ferramentas de produtividade. Atualizações automáticas e sincronização em tempo real.'
+            description: 'Integração perfeita entre seus sistemas CRM, ERP e ferramentas de produtividade. Atualizações automáticas e sincronização em tempo real.',
+            url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20agentes%20de%20automação%20de%20fluxo%20da%20DataDash.'
         },
         {
-            icon: '📄',
-            title: 'Processamento Inteligente de Documentos',
-            description: 'Extração automática de dados de faturas, contratos e formulários. IA que aprende e melhora continuamente.'
+            icon: '💻',
+            title: 'Desenvolvimento de aplicações web',
+            description: 'Landing Pages, E-commerce, Dashboards, entre outros. Tudo isso impulsionado pela IA.',
+            url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20desenvolvimento%20de%20aplicações%20web%20da%20DataDash.'
         },
         {
             icon: '💬',
             title: 'Chatbots e Assistentes Inteligentes',
-            description: 'Assistentes virtuais que entendem contexto e executam ações. Suporte interno e atendimento ao cliente 24/7.'
+            description: 'Assistentes virtuais que entendem contexto e executam ações. Suporte interno e atendimento ao cliente 24/7.',
+            url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20chatbots%20e%20assistentes%20inteligentes%20da%20DataDash.'
         },
         {
             icon: '📊',
             title: 'Planilhas Integradas',
-            description: 'Google Sheets com preenchimento automático e funções personalizadas. Dashboards em tempo real conectados a suas fontes de dados.'
+            description: 'Google Sheets com preenchimento automático e funções personalizadas. Dashboards em tempo real conectados a suas fontes de dados.',
+            url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20planilhas%20integradas%20da%20DataDash.'
         }
     ];
 
@@ -31,10 +35,11 @@ const Services = () => {
 
                 <div className="services-grid">
                     {services.map((service, index) => (
-                        <div
+                        <a
                             key={index}
+                            href={service.url}
                             className="service-card fade-in-up"
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                            style={{ animationDelay: `${index * 0.1}s`, textDecoration: 'none', color: 'inherit' }}
                         >
                             <div className="service-icon">{service.icon}</div>
                             <h3 className="service-title">{service.title}</h3>
@@ -45,7 +50,7 @@ const Services = () => {
                                     <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </div>
