@@ -35,6 +35,7 @@ const Header = () => {
                         <a onClick={() => scrollToSection('services')} className="nav-link">Soluções</a>
                         <a onClick={() => scrollToSection('problem-solution')} className="nav-link">Abordagem</a>
                         <a onClick={() => scrollToSection('portfolio')} className="nav-link">Clientes</a>
+                        <a onClick={() => scrollToSection('team')} className="nav-link">Equipe</a>
                         <a onClick={() => scrollToSection('cta-footer')} className="nav-link">Contato</a>
                     </nav>
 

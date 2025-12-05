@@ -6,6 +6,7 @@ import TechStack from './components/TechStack';
 import ProblemSolution from './components/ProblemSolution';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
+import Team from './components/Team';
 import CTAFooter from './components/CTAFooter';
 
 
@@ -41,6 +42,7 @@ function App() {
       <ProblemSolution />
       <Services />
       <Portfolio />
+      <Team />
       <CTAFooter />
     </div>
   );
