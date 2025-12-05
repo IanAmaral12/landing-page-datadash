@@ -6,6 +6,22 @@
   <link rel="icon" type="image/png" href="/logotipo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Datadash Solutions</title>
+  <script>
+    (function (d, t) {
+      var BASE_URL = "https://chatwoot.datadashapp.com";
+      var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      g.src = BASE_URL + "/packs/js/sdk.js";
+      g.async = true;
+      s.parentNode.insertBefore(g, s);
+      g.onload = function () {
+        window.chatwootSDK.run({
+          websiteToken: 'gi1wBndXaAuksiK8GaC9iq4g',
+          baseUrl: BASE_URL
+        })
+      }
+    })(document, "script");
+  </script>
+
 </head>
 
 <body>
