@@ -3,28 +3,22 @@ import './Services.css';
 const Services = () => {
     const services = [
         {
-            icon: '🔄',
             title: 'Agentes de Automação de Fluxo',
+            gifUrl: '/automation-flow.gif',
             description: 'Integração perfeita entre seus sistemas CRM, ERP e ferramentas de produtividade. Atualizações automáticas e sincronização em tempo real.',
             url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20agentes%20de%20automação%20de%20fluxo%20da%20DataDash.'
         },
         {
-            icon: '💻',
+            gifUrl: '/web-development.gif', // Adicione o GIF aqui
             title: 'Desenvolvimento de aplicações web',
             description: 'Landing Pages, E-commerce, Dashboards, entre outros. Tudo isso impulsionado pela IA.',
             url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20desenvolvimento%20de%20aplicações%20web%20da%20DataDash.'
         },
         {
-            icon: '💬',
+            gifUrl: '/chatbot.gif', // Adicione o GIF aqui
             title: 'Chatbots e Assistentes Inteligentes',
             description: 'Assistentes virtuais que entendem contexto e executam ações. Suporte interno e atendimento ao cliente 24/7.',
             url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20chatbots%20e%20assistentes%20inteligentes%20da%20DataDash.'
-        },
-        {
-            icon: '📊',
-            title: 'Planilhas Integradas',
-            description: 'Google Sheets com preenchimento automático e funções personalizadas. Dashboards em tempo real conectados a suas fontes de dados.',
-            url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20planilhas%20integradas%20da%20DataDash.'
         }
     ];
 
@@ -41,8 +35,10 @@ const Services = () => {
                             className="service-card fade-in-up"
                             style={{ animationDelay: `${index * 0.1}s`, textDecoration: 'none', color: 'inherit' }}
                         >
-                            <div className="service-icon">{service.icon}</div>
                             <h3 className="service-title">{service.title}</h3>
+                            <div className="service-icon">
+                                <img src={service.gifUrl} alt={service.title} />
+                            </div>
                             <p className="service-description">{service.description}</p>
                             <div className="service-link">
                                 <span>Saiba mais</span>

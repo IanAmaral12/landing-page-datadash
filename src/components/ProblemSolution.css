@@ -35,8 +35,8 @@
 }
 
 .solution-card:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+    border-color: #39de27;
+    box-shadow: 0 10px 30px -10px #0a3816;
 }
 
 .card-header {
