@@ -3,21 +3,21 @@ import './Services.css';
 const Services = () => {
     const services = [
         {
-            title: 'Agentes de Automação de Fluxo',
+            title: 'Automação IA',
             gifUrl: '/automation-flow.gif',
-            description: 'Integração perfeita entre seus sistemas CRM, ERP e ferramentas de produtividade. Atualizações automáticas e sincronização em tempo real.',
-            url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20agentes%20de%20automação%20de%20fluxo%20da%20DataDash.'
+            description: 'Automatizamos seus sistemas, integrando e otimizando todos os processos com o poder da Inteligência Artificial.',
+            url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20automação%20IA%20da%20DataDash.'
         },
         {
-            gifUrl: '/web-development.gif', // Adicione o GIF aqui
-            title: 'Desenvolvimento de aplicações web',
+            gifUrl: '/development.gif',
+            title: 'Desenvolvimento',
             description: 'Landing Pages, E-commerce, Dashboards, entre outros. Tudo isso impulsionado pela IA.',
             url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20desenvolvimento%20de%20aplicações%20web%20da%20DataDash.'
         },
         {
             gifUrl: '/chatbot.gif', // Adicione o GIF aqui
-            title: 'Chatbots e Assistentes Inteligentes',
-            description: 'Assistentes virtuais que entendem contexto e executam ações. Suporte interno e atendimento ao cliente 24/7.',
+            title: 'Fluxo de automação',
+            description: 'Fluxos de automação que otimizam processos e reduzem custos.',
             url: 'https://wa.me/5514936181105?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20chatbots%20e%20assistentes%20inteligentes%20da%20DataDash.'
         }
     ];

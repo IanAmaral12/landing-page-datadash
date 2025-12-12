@@ -5,7 +5,7 @@ const Team = () => {
         {
             name: 'Ian Amaral',
             role: 'Fundador & CEO',
-            image: '/ian-amaral.jpg',
+            image: '/ian-amaral.png',
             bio: 'Cientista da computação com mais de 4 anos de experiência no mercado de tecnologia e desenvolvimento de software, já atuando em projetos grandes para empresas como Petrobras e Claro.',
             linkedin: 'https://www.linkedin.com/in/ian-felipe-silva/',
             github: '#',
@@ -17,9 +17,9 @@ const Team = () => {
         <section id="team" className="team">
             <div className="container">
                 <div className="team-header fade-in-up">
-                    <h2 className="section-title">Nossa Equipe</h2>
+                    <h2 className="section-title">Nosso time</h2>
                     <p className="section-subtitle">
-                        Conheça o especialista por trás das soluções inovadoras da DataDash Solutions
+                        Conheça a liderança por trás das soluções inovadoras da Datadash Solutions.
                     </p>
                 </div>
 
