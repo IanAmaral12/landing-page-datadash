@@ -8,6 +8,7 @@ import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Team from './components/Team';
 import CTAFooter from './components/CTAFooter';
+import { Analytics } from '@vercel/analytics/react';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <Analytics />
       <Header />
       <Hero />
       <TechStack />
