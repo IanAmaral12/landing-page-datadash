@@ -30,7 +30,7 @@ test('o cadastro envia os dados de perfil ao Supabase Auth sem a confirmação d
   let request;
   globalThis.fetch = async (url, options) => {
     request = { url, options };
-    return { ok: true, json: async () => ({ user: { id: 'user-id' } }) };
+    return { ok: true, json: async () => ({ id: 'user-id', email: 'ana@example.com' }) };
   };
   await signUp(base);
   assert.equal(request.url, 'https://wsbqqinzzpcimszdxgtf.supabase.co/auth/v1/signup');
@@ -47,4 +47,9 @@ test('o cadastro envia os dados de perfil ao Supabase Auth sem a confirmação d
 test('falha de rede não é interpretada como cadastro concluído', async () => {
   globalThis.fetch = async () => ({ ok: false, json: async () => ({ message: 'rate limit exceeded' }) });
   await assert.rejects(signUp(base), /Muitas tentativas/);
+});
+
+test('resposta sem usuário não é interpretada como cadastro concluído', async () => {
+  globalThis.fetch = async () => ({ ok: true, json: async () => ({}) });
+  await assert.rejects(signUp(base), /Não foi possível confirmar/);
 });

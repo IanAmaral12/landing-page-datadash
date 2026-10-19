@@ -46,7 +46,9 @@ export async function signUp(form) {
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(translateError(data.msg || data.message || data.error_description || data.error));
-  if (!data.user?.id) throw new Error('Não foi possível confirmar o cadastro. Tente novamente.');
+  // The GoTrue REST endpoint returns the user itself when email confirmation is enabled.
+  // Its session response wraps the user when confirmation is disabled.
+  if (!data.id && !data.user?.id) throw new Error('Não foi possível confirmar o cadastro. Tente novamente.');
   return data;
 }
 
