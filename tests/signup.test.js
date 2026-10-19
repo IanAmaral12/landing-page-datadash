@@ -16,11 +16,15 @@ test('a primeira etapa exige o perfil e a classificação correspondente', () =>
   assert.match(validateProfile({ ...base, accountType: 'user', companySize: '' }), /tamanho/);
   assert.equal(validateProfile({ ...base, accountType: 'user', companySize: '16 a 19 pessoas' }), '');
   assert.match(validateProfile({ ...base, industry: ' ' }), /nicho/);
+  assert.match(validateProfile({ ...base, industry: 'a'.repeat(101) }), /100 caracteres/);
 });
 
 test('a segunda etapa valida nome, telefone, email e confirmação de senha', () => {
   assert.match(validateSignup({ ...base, name: '' }), /nome/);
   assert.match(validateSignup({ ...base, phone: '123' }), /telefone/);
+  assert.match(validateSignup({ ...base, phone: '1'.repeat(16) }), /telefone/);
+  assert.match(validateSignup({ ...base, companyName: 'a'.repeat(121) }), /120 caracteres/);
+  assert.match(validateSignup({ ...base, name: 'a'.repeat(121) }), /120 caracteres/);
   assert.match(validateSignup({ ...base, email: 'inválido' }), /e-mail/);
   assert.match(validateSignup({ ...base, confirmation: 'diferente' }), /coincidem/);
   assert.equal(validateSignup(base), '');

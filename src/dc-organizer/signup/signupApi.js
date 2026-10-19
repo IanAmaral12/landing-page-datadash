@@ -10,14 +10,18 @@ export function validateProfile(form) {
   if (form.accountType === 'provider' && !CLIENT_COUNTS.includes(form.clientCount)) return 'Selecione a quantidade de clientes.';
   if (form.accountType === 'user' && !COMPANY_SIZES.includes(form.companySize)) return 'Selecione o tamanho da empresa.';
   if (!form.industry.trim()) return 'Informe o nicho de atuação.';
+  if (form.industry.trim().length > 100) return 'O nicho deve ter até 100 caracteres.';
   return '';
 }
 
 export function validateSignup(form) {
   const profileError = validateProfile(form);
   if (profileError) return profileError;
+  if (form.companyName.trim().length > 120) return 'O nome da empresa deve ter até 120 caracteres.';
   if (!form.name.trim()) return 'Informe seu nome.';
-  if (form.phone.replace(/\D/g, '').length < 10) return 'Informe um telefone com DDD.';
+  if (form.name.trim().length > 120) return 'Seu nome deve ter até 120 caracteres.';
+  const phoneDigits = form.phone.replace(/\D/g, '').length;
+  if (phoneDigits < 10 || phoneDigits > 15 || form.phone.trim().length > 25) return 'Informe um telefone com DDD válido.';
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) return 'Informe um e-mail válido.';
   if (form.password.length < MIN_PASSWORD_LENGTH) return `A senha precisa ter pelo menos ${MIN_PASSWORD_LENGTH} caracteres.`;
   if (form.password !== form.confirmation) return 'As senhas não coincidem.';
