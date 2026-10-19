@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CLIENT_COUNTS, COMPANY_SIZES, MIN_PASSWORD_LENGTH, signUp, validateProfile, validateSignup } from './signupApi.js';
+import { CLIENT_COUNTS, COMPANY_SIZES, MIN_PASSWORD_LENGTH, signUp, validateDetails, validateProfile, validateSignup } from './signupApi.js';
 import './SignupPage.css';
 
 const INITIAL_FORM = {
@@ -47,6 +47,13 @@ function SignupPage() {
     if (!problem) setStep(2);
   };
 
+  const nextAccessStep = (event) => {
+    event.preventDefault();
+    const problem = validateDetails(form);
+    setError(problem);
+    if (!problem) setStep(3);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (status === 'loading') return;
@@ -79,12 +86,13 @@ function SignupPage() {
           </section>
         ) : (
           <section className="signup-content">
-            <div className="signup-progress" aria-label={'Etapa ' + step + ' de 2'}>
-              <span className={step === 1 ? 'active' : 'done'} />
-              <span className={step === 2 ? 'active' : ''} />
+            <div className="signup-progress" aria-label={'Etapa ' + step + ' de 3'}>
+              {[1, 2, 3].map((stage) => (
+                <span key={stage} className={step === stage ? 'active' : step > stage ? 'done' : ''} aria-hidden="true" />
+              ))}
             </div>
-            <p className="signup-step">Etapa {step} de 2</p>
-            <h1>{step === 1 ? 'Sobre você' : 'Seus dados'}</h1>
+            <p className="signup-step">Etapa {step} de 3</p>
+            <h1>{step === 1 ? 'Seu perfil' : step === 2 ? 'Seus dados' : 'Crie seu acesso'}</h1>
 
             {step === 1 ? (
               <form className="signup-form" onSubmit={nextStep} noValidate>
@@ -121,14 +129,22 @@ function SignupPage() {
                 {error && <p className="signup-error" role="alert">{error}</p>}
                 <button type="submit" className="signup-primary">Continuar</button>
               </form>
-            ) : (
-              <form className="signup-form" onSubmit={handleSubmit} noValidate>
+            ) : step === 2 ? (
+              <form className="signup-form" onSubmit={nextAccessStep} noValidate>
                 <label htmlFor="signup-company">Nome da empresa <span>(se houver)</span></label>
                 <input id="signup-company" type="text" autoComplete="organization" value={form.companyName} onChange={update('companyName')} maxLength="120" />
                 <label htmlFor="signup-name">Seu nome</label>
                 <input id="signup-name" type="text" autoComplete="name" value={form.name} onChange={update('name')} maxLength="120" />
                 <label htmlFor="signup-phone">Telefone para contato</label>
                 <input id="signup-phone" type="tel" autoComplete="tel" inputMode="tel" value={form.phone} onChange={update('phone')} placeholder="(11) 99999-9999" maxLength="25" />
+                {error && <p className="signup-error" role="alert">{error}</p>}
+                <div className="signup-actions">
+                  <button type="button" className="signup-back" onClick={() => { setStep(1); setError(''); }}>Voltar</button>
+                  <button type="submit" className="signup-primary">Continuar</button>
+                </div>
+              </form>
+            ) : (
+              <form className="signup-form" onSubmit={handleSubmit} noValidate>
                 <label htmlFor="signup-email">E-mail</label>
                 <input id="signup-email" type="email" autoComplete="email" value={form.email} onChange={update('email')} placeholder="voce@empresa.com" />
                 <label htmlFor="signup-password">Senha</label>
@@ -140,7 +156,7 @@ function SignupPage() {
                 <input id="signup-confirmation" type={showPassword ? 'text' : 'password'} autoComplete="new-password" value={form.confirmation} onChange={update('confirmation')} />
                 {error && <p className="signup-error" role="alert">{error}</p>}
                 <div className="signup-actions">
-                  <button type="button" className="signup-back" onClick={() => { setStep(1); setError(''); }}>Voltar</button>
+                  <button type="button" className="signup-back" onClick={() => { setStep(2); setError(''); }}>Voltar</button>
                   <button type="submit" className="signup-primary" disabled={status === 'loading'}>{status === 'loading' ? 'Criando...' : 'Criar conta'}</button>
                 </div>
               </form>

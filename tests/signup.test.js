@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { afterEach, test } from 'node:test';
-import { signUp, validateProfile, validateSignup } from '../src/dc-organizer/signup/signupApi.js';
+import { signUp, validateAccess, validateDetails, validateProfile, validateSignup } from '../src/dc-organizer/signup/signupApi.js';
 
 const base = {
   accountType: 'provider', clientCount: '6 a 20', companySize: '', industry: 'Marketing',
@@ -19,14 +19,20 @@ test('a primeira etapa exige o perfil e a classificação correspondente', () =>
   assert.match(validateProfile({ ...base, industry: 'a'.repeat(101) }), /100 caracteres/);
 });
 
-test('a segunda etapa valida nome, telefone, email e confirmação de senha', () => {
+test('a segunda etapa valida apenas os dados gerais', () => {
+  assert.match(validateDetails({ ...base, name: '' }), /nome/);
+  assert.match(validateDetails({ ...base, phone: '123' }), /telefone/);
+  assert.match(validateDetails({ ...base, phone: '1'.repeat(16) }), /telefone/);
+  assert.match(validateDetails({ ...base, companyName: 'a'.repeat(121) }), /120 caracteres/);
+  assert.match(validateDetails({ ...base, name: 'a'.repeat(121) }), /120 caracteres/);
+  assert.equal(validateDetails({ ...base, email: '', password: '' }), '');
+});
+
+test('a terceira etapa valida o acesso e o envio final valida todas as etapas', () => {
+  assert.match(validateAccess({ ...base, email: 'inválido' }), /e-mail/);
+  assert.match(validateAccess({ ...base, confirmation: 'diferente' }), /coincidem/);
+  assert.equal(validateAccess({ ...base, name: '' }), '');
   assert.match(validateSignup({ ...base, name: '' }), /nome/);
-  assert.match(validateSignup({ ...base, phone: '123' }), /telefone/);
-  assert.match(validateSignup({ ...base, phone: '1'.repeat(16) }), /telefone/);
-  assert.match(validateSignup({ ...base, companyName: 'a'.repeat(121) }), /120 caracteres/);
-  assert.match(validateSignup({ ...base, name: 'a'.repeat(121) }), /120 caracteres/);
-  assert.match(validateSignup({ ...base, email: 'inválido' }), /e-mail/);
-  assert.match(validateSignup({ ...base, confirmation: 'diferente' }), /coincidem/);
   assert.equal(validateSignup(base), '');
 });
 
