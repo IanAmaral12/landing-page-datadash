@@ -5,6 +5,14 @@
   ],
   "headers": [
     {
+      "source": "/dc-organizer/auth/bridge.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
       "source": "/dc-organizer/reset-password",
       "headers": [
         { "key": "Cache-Control", "value": "no-store" },
