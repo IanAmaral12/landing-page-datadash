@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://wsbqqinzzpcimszdxgtf.supabase.co; base-uri 'none'; form-action 'none'">
+  <title>Redefinir senha · DC Organizer</title>
+  <link rel="stylesheet" href="/dc-organizer/reset-password/reset.css">
+  <script src="/dc-organizer/reset-password/reset.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">DC Organizer</div>
+    <h1 id="title">Redefinir senha</h1>
+    <p id="message" role="status" aria-live="polite"></p>
+    <form id="reset-form" hidden>
+      <label for="password">Nova senha</label>
+      <input id="password" type="password" autocomplete="new-password" minlength="8" required>
+      <label for="confirmation">Confirme a nova senha</label>
+      <input id="confirmation" type="password" autocomplete="new-password" minlength="8" required>
+      <button id="submit" type="submit">Salvar nova senha</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,8 +1,8 @@
 # DataDash
 
 Site público em React e Vite. O cadastro da extensão DC Organizer entra por
-`/dc-organizer/signup` e a página de confirmação e redefinição de senha por
-`/dc-organizer/auth/confirmed.html`.
+`/dc-organizer/signup`, a confirmação por `/dc-organizer/auth/confirmed.html`
+e a redefinição de senha por `/dc-organizer/reset-password`.
 
 ## Desenvolvimento
 
@@ -17,7 +17,9 @@ Requer Node.js 20.6 ou superior. Instale as dependências com `npm ci`.
 O cadastro usa a chave pública do projeto Supabase `wsbqqinzzpcimszdxgtf`.
 Os dados de perfil ficam em `auth.users.raw_user_meta_data`; senha e confirmação
 de senha não são armazenadas pelo site. A página de redefinição recebe o token
-do e-mail no fragmento da URL e o remove imediatamente do histórico.
+do e-mail no fragmento da URL, remove-o imediatamente do histórico e o usa
+somente em memória para atualizar a senha. `auth/bridge.js` transporta o
+fragmento da URL do Supabase para a rota correta no navegador.
 
 O Vercel publica o conteúdo de `dist/`. A regra de `vercel.json` mantém a rota
 de cadastro sem exigir `/index.html`. Publique este site antes de atualizar a

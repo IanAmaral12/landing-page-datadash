@@ -1,5 +1,24 @@
 {
   "rewrites": [
-    { "source": "/dc-organizer/signup", "destination": "/dc-organizer/signup/index.html" }
+    { "source": "/dc-organizer/signup", "destination": "/dc-organizer/signup/index.html" },
+    { "source": "/dc-organizer/reset-password", "destination": "/dc-organizer/reset-password/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/dc-organizer/reset-password",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/dc-organizer/reset-password/:path*",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
   ]
 }
