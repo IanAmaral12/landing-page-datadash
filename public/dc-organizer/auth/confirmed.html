@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src https://wsbqqinzzpcimszdxgtf.supabase.co; base-uri 'none'; form-action 'none'">
+  <title>Flow Organizer · E-mail</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; color: #f6f7ff; background: #080913; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at 50% 0, #28207a 0, transparent 45%), #080913; }
+    main { width: min(100%, 440px); padding: 30px; border: 1px solid #41448a; border-radius: 22px; background: #12172d; box-shadow: 0 24px 80px #0008; }
+    .brand { color: #9ea7ff; font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { margin: 10px 0 8px; font-size: 29px; line-height: 1.1; }
+    p { color: #bec5e3; line-height: 1.5; }
+    label { display: block; margin: 18px 0 6px; font-weight: 700; font-size: 13px; }
+    input { width: 100%; padding: 12px; border: 1px solid #596184; border-radius: 10px; color: #fff; background: #090d20; font: inherit; }
+    input:focus-visible, button:focus-visible { outline: 2px solid #aab3ff; outline-offset: 2px; }
+    button { width: 100%; margin-top: 22px; padding: 12px; border: 0; border-radius: 10px; color: #fff; background: linear-gradient(110deg, #394af2, #6651df); font: inherit; font-weight: 800; cursor: pointer; }
+    button:disabled { opacity: .55; cursor: wait; }
+    #message.error { color: #ffb6be; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">DataCrazy · Flow Organizer</div>
+    <h1 id="title">Confirmação de e-mail</h1>
+    <p id="message" role="status" aria-live="polite"></p>
+    <form id="reset-form" hidden>
+      <label for="password">Nova senha</label>
+      <input id="password" type="password" autocomplete="new-password" minlength="8" required>
+      <label for="confirm-password">Confirme a nova senha</label>
+      <input id="confirm-password" type="password" autocomplete="new-password" minlength="8" required>
+      <button id="submit" type="submit">Salvar nova senha</button>
+    </form>
+  </main>
+  <script src="confirmed.js" defer></script>
+</body>
+</html>
