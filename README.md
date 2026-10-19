@@ -19,7 +19,7 @@ Os dados de perfil são enviados ao Supabase Auth em `auth.users.raw_user_meta_d
 e copiados pelo gatilho do banco para `public.organizer_profiles`. A tabela possui
 restrições para os campos do formulário e permite a cada usuário autenticado ler
 apenas seu próprio perfil. A migração está no projeto da extensão, em
-`supabase/migrations/20261019152205_organizer_profiles.sql`. Senha e confirmação
+`supabase/migrations/20261019152253_organizer_profiles.sql`. Senha e confirmação
 de senha não são armazenadas pelo site. A página de redefinição recebe o token
 do e-mail no fragmento da URL, remove-o imediatamente do histórico e o usa
 somente em memória para atualizar a senha. `auth/bridge.js` transporta o
