@@ -6,11 +6,13 @@ e a redefinição de senha por `/dc-organizer/reset-password`.
 
 ## Desenvolvimento
 
-Requer Node.js 20.6 ou superior. Instale as dependências com `npm ci`.
+Requer Node.js `^20.19.0 || >=22.12.0`, conforme o Vite e seu plugin React. Instale as dependências com `npm ci`.
 
 - `npm run dev` — servidor local
 - `npm test` — valida cadastro e integração de autenticação
 - `npm run lint` — lint do projeto
+- `npm run rules` — autoavaliação das regras locais de lint
+- `npm run check` — lint, regras, testes e build
 - `npm run build` — gera `dist/` para publicação
 - `npm run preview` — inspeciona o build local
 
@@ -29,3 +31,12 @@ O Vercel publica o conteúdo de `dist/`. A regra de `vercel.json` mantém a rota
 de cadastro sem exigir `/index.html`. Publique este site antes de atualizar a
 Edge Function `auth-confirmed`, pois ela redireciona os links de e-mail para
 esta página.
+
+## Contexto e manutenção
+
+Leia [PRODUCT.md](PRODUCT.md) para o escopo observado, [AGENTS.md](AGENTS.md)
+para os comandos de agentes e [docs/onboarding.md](docs/onboarding.md) para
+execução local. [docs/architecture.md](docs/architecture.md) descreve os limites
+entre site e serviços; [docs/design.md](docs/design.md) registra critérios de
+interface; [docs/quality.md](docs/quality.md) explica a cobertura dos checks;
+[docs/setup.md](docs/setup.md) registra o toolkit e suas pendências.

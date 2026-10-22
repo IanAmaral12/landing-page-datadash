@@ -1,0 +1,4 @@
+# Project-scoped documentation lookup. Loaded only when this project is trusted.
+# Authentication, model and permission settings stay in user configuration.
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"

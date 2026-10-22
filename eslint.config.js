@@ -3,9 +3,10 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
+import localRules from './eslint-rules/index.cjs'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', '.agents/skills/**', '.claude/skills/**']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -24,6 +25,14 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+  {
+    files: ['src/**/*.{js,jsx}', 'public/dc-organizer/**/*.js'],
+    plugins: { quality: localRules },
+    rules: {
+      'quality/max-lines': ['error', { max: 350 }],
+      'quality/no-direct-console': ['error', { logger: 'a user-visible status or dedicated logger' }],
     },
   },
 ])

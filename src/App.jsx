@@ -1,50 +1,48 @@
-import { useEffect } from 'react';
-import './App.css';
+import { useEffect, useRef, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import TechStack from './components/TechStack';
-import ProblemSolution from './components/ProblemSolution';
-import Services from './components/Services';
-import Portfolio from './components/Portfolio';
-import Team from './components/Team';
-import CTAFooter from './components/CTAFooter';
-import { Analytics } from '@vercel/analytics/react';
-
+import Solutions from './components/Solutions';
+import Process from './components/Process';
+import Partner from './components/Partner';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { revealOnScroll } from './motion';
 
 function App() {
+  const rootRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [floatingCta, setFloatingCta] = useState(false);
+
+  useEffect(() => revealOnScroll(rootRef.current), []);
+
   useEffect(() => {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+    const onScroll = () => {
+      const y = window.scrollY;
+      const hero = document.getElementById('top');
+      const contact = document.getElementById('contato');
+      setScrolled(y > 24);
+      // The floating CTA appears after the hero and hides once the contact section is in view.
+      setFloatingCta(y > hero.offsetHeight - 200 && contact.getBoundingClientRect().top >= window.innerHeight * 0.85);
     };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Observe all fade-in-up elements
-    const elements = document.querySelectorAll('.fade-in-up');
-    elements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div className="App">
+    <div ref={rootRef}>
       <Analytics />
-      <Header />
-      <Hero />
-      <TechStack />
-      <ProblemSolution />
-      <Services />
-      <Portfolio />
-      <Team />
-      <CTAFooter />
+      <Header scrolled={scrolled} />
+      <main>
+        <Hero />
+        <Solutions />
+        <Process />
+        <Partner />
+        <About />
+        <Contact />
+      </main>
+      <Footer showFloatingCta={floatingCta} />
     </div>
   );
 }
