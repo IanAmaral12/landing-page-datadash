@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Como o DC Organizer trata os dados de cadastro, sessão e estrutura dos fluxos.">
+  <title>Privacidade do DC Organizer | DataDash</title>
+  <style>
+    :root { font: 16px/1.6 system-ui, sans-serif; color: #172033; background: #f7f8fc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #3730a3; }
+    a:focus-visible { outline: 3px solid #4f46e5; outline-offset: 3px; }
+    .skip { position: absolute; top: -80px; left: 12px; padding: 8px; background: #fff; }
+    .skip:focus { top: 12px; }
+    header, main { width: min(100% - 32px, 800px); margin-inline: auto; }
+    header { display: flex; justify-content: space-between; gap: 16px; padding-block: 20px; }
+    header a { font-weight: 700; }
+    main { margin-bottom: 48px; padding: clamp(24px, 5vw, 48px); border: 1px solid #e9ebf2; border-radius: 20px; background: #fff; }
+    h1, h2 { line-height: 1.2; }
+    h1 { margin-top: 0; font-size: clamp(28px, 5vw, 38px); }
+    h2 { margin-top: 32px; font-size: 21px; }
+    p, li { max-width: 72ch; }
+    li + li { margin-top: 8px; }
+    .date { color: #5b6475; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir ao conteúdo</a>
+  <header>
+    <a href="/">DataDash</a>
+    <a href="/dc-organizer/signup">Criar conta</a>
+  </header>
+  <main id="conteudo">
+    <h1>Privacidade do DC Organizer</h1>
+    <p class="date">Última atualização: 22 de outubro de 2026.</p>
+    <p>O DC Organizer ajuda você a organizar os blocos de um fluxo no CRM DataCrazy. A DataDash Solutions é responsável pelo tratamento dos dados descritos aqui. Para dúvidas ou solicitações sobre seus dados, escreva para <a href="mailto:contato@datadashapp.com">contato@datadashapp.com</a>.</p>
+
+    <h2>Dados de conta</h2>
+    <p>Ao criar a conta, você informa e-mail, senha, nome, telefone, nicho de atuação, tipo de conta e, conforme a escolha, quantidade de clientes ou tamanho da empresa. O nome da empresa é opcional. Esses dados são enviados ao Supabase para autenticação e manutenção do perfil. A senha é enviada ao serviço de autenticação; a extensão não a armazena.</p>
+
+    <h2>Dados do fluxo</h2>
+    <p>Ao selecionar <strong>Organizar</strong>, a extensão lê IDs e tipos dos blocos, conexões, dimensões e coordenadas do fluxo aberto. Ela envia essa estrutura e seu token de acesso à função de layout hospedada no Supabase, que devolve novas posições. A função não grava o grafo em uma tabela do projeto. A extensão aplica as posições para sua revisão; somente você salva o fluxo no CRM.</p>
+    <p>O pedido de layout não inclui textos de mensagens, configuração dos blocos, senha da conta nem credenciais do CRM. A construção guiada calcula sugestões na própria página, sem chamar a função de layout.</p>
+
+    <h2>Dados no navegador e no site</h2>
+    <p>A extensão guarda o e-mail usado e as preferências de disposição e construção guiada no armazenamento local do Chrome. Os tokens de acesso e renovação ficam no armazenamento de sessão do Chrome e são removidos ao selecionar <strong>Sair</strong>. A página de cadastro usa Vercel Analytics para medir visitas e informações técnicas de navegação.</p>
+
+    <h2>Serviços envolvidos e conservação</h2>
+    <p>Supabase presta os serviços de autenticação, perfil e cálculo de posições. Vercel hospeda a página de cadastro e fornece a medição de visitas nessa página. O CRM DataCrazy é um serviço separado; o DC Organizer não envia pedidos para salvar alterações nele.</p>
+    <p>O e-mail e as preferências continuam no armazenamento local até os dados da extensão serem apagados no navegador. Os tokens de sessão são removidos ao sair da conta. Os dados de conta são mantidos para operar o serviço; os prazos aplicáveis a pedidos de exclusão e a eventuais cópias de segurança serão informados pelo canal de contato acima.</p>
+
+    <h2>Seus direitos</h2>
+    <p>Você pode pedir confirmação do tratamento, acesso, correção ou exclusão dos seus dados, além de informações sobre compartilhamento e conservação. Envie o pedido para <a href="mailto:contato@datadashapp.com">contato@datadashapp.com</a>. Podemos pedir informações necessárias para confirmar que a conta é sua antes de responder.</p>
+  </main>
+</body>
+</html>

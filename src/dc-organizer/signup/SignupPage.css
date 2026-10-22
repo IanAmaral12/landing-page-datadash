@@ -43,6 +43,9 @@
   outline: 2px solid #4f46e5;
   outline-offset: 2px;
 }
+.signup-privacy { margin: 12px 0; color: #5b6475; font-size: 13px; line-height: 1.45; }
+.signup-privacy a { color: #3730a3; }
+.signup-privacy a:focus-visible { outline: 2px solid #4f46e5; outline-offset: 2px; }
 .signup-fieldset { min-width: 0; margin: 0 0 4px; padding: 0; border: 0; }
 .signup-fieldset legend { padding: 0; }
 .signup-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }

@@ -154,6 +154,7 @@ function SignupPage() {
                 </div>
                 <label htmlFor="signup-confirmation">Confirme a senha</label>
                 <input id="signup-confirmation" type={showPassword ? 'text' : 'password'} autoComplete="new-password" value={form.confirmation} onChange={update('confirmation')} />
+                <p className="signup-privacy">Saiba como tratamos seus dados na <a href="/dc-organizer/privacy/">Política de Privacidade</a>.</p>
                 {error && <p className="signup-error" role="alert">{error}</p>}
                 <div className="signup-actions">
                   <button type="button" className="signup-back" onClick={() => { setStep(2); setError(''); }}>Voltar</button>
